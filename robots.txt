@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /docs/
 Disallow: /scripts/
-Sitemap: https://dreamylost.cn/sitemap.xml
+Sitemap: https://dreamylost.com/sitemap.xml

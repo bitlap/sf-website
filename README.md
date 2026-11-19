@@ -1,6 +1,6 @@
 # SnapFlow 幻兔官网
 
-独立于 Flutter App 的官方网站。线上域名：**https://dreamylost.cn**。
+独立于 Flutter App 的官方网站。线上域名：**https://dreamylost.com**。
 
 ## 功能
 
@@ -44,7 +44,7 @@ platforms: {
 
 在 Settings → Pages 设置 **Deploy from a branch → main → / (root)**。根目录的 `.nojekyll` 禁用 Jekyll，`CNAME` 保留自定义域名。GitHub Pages 会随 `main` 的推送自动发布；本项目不依赖付费的自定义 Actions runner。请在每次推送前运行 `npm run build`。
 
-自定义域名设为 `dreamylost.cn`。GitHub 要求先在组织 Settings → Pages 中验证域名：添加 `_github-pages-challenge-bitlap` TXT 记录，值使用 GitHub 验证页面提供的代码，并完成 Verify。验证后绑定域名；DNS 生效且 GitHub 签发证书后启用 **Enforce HTTPS**。
+自定义域名设为 `dreamylost.com`。如 GitHub 要求域名验证，在组织 Settings → Pages 中验证域名：添加 `_github-pages-challenge-bitlap` TXT 记录，值使用 GitHub 验证页面提供的代码，并完成 Verify。验证后绑定域名；DNS 生效且 GitHub 签发证书后启用 **Enforce HTTPS**。
 
 DNSPod 记录（普通解析，不修改 `m` 等其他子域名）：
 
