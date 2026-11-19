@@ -31,4 +31,4 @@ App 源码中的统一入口同步更新到官网；已有安装包不因此发�
 
 官网域名已签发证书并强制 HTTPS；双语入口和两篇正文均 HTTP 200，与生成源码逐字一致。旧政策仓库的 Pages 已停用，三个旧 URL 均由组织主站返回指向官网的跳转页面（HTTP 200）；浏览器实测旧中文链接落地 `https://dreamylost.com/privacy/zh-CN.html`。App 隐私入口的 5 项既有回归测试通过。
 
-原仓库完整 Git 历史 bundle 和 Issues 数据保存在本地官网 checkout 的 `.git/migration-backups/`，不部署到公开网页。仓库本体的移除以 GitHub 返回状态为准。
+原仓库完整 Git 历史 bundle 和 Issues 数据保存在本地官网 checkout 的 `.git/migration-backups/`，不部署到公开网页。旧仓库 `bitlap/sf-app-privacy` 已按用户选择归档为只读，保留在线 Git 历史和 Issues；其 Pages 已停用。后续政策仅在 `sf-website` 维护，旧地址跳转独立由组织主站提供。

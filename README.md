@@ -75,4 +75,4 @@ DNSPod 记录（普通解析，不修改 `m` 等其他子域名）：
 
 政策页共用官网字体、品牌标识、配色与导航，使用静态 HTML 和原生语言链接，不加载官网 JavaScript，不通过 Cookie 或 localStorage 记住语言。字体和样式自行托管。打印样式隐藏导航和目录，方便保存政策正文。
 
-旧 `https://bitlap.org/sf-app-privacy/` 地址的兼容跳转由组织主站 `bitlap.github.io` 的 `public/sf-app-privacy/` 维护；Pages 发布分支同时保留对应文件。旧仓库移除后，已发布 App 和商店里的旧入口仍可跳至本网站。
+旧 `https://bitlap.org/sf-app-privacy/` 地址的兼容跳转由组织主站 `bitlap.github.io` 的 `public/sf-app-privacy/` 维护；Pages 发布分支同时保留对应文件。旧仓库 `bitlap/sf-app-privacy` 已归档为只读并停用 Pages；已发布 App 和商店里的旧入口仍可跳至本网站。
