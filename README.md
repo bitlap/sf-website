@@ -1,6 +1,6 @@
 # SnapFlow 幻兔官网
 
-独立于 Flutter App 的官方网站。线上域名：**https://dreamylost.com**。
+独立于 Flutter App 的官方网站。线上域名：**https://dreamylost.com** 。
 
 ## 功能
 
