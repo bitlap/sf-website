@@ -77,5 +77,7 @@ tabs.forEach((button,index)=>{
   button.addEventListener('keydown',e=>{let next;if(e.key==='ArrowRight')next=(index+1)%tabs.length;if(e.key==='ArrowLeft')next=(index-1+tabs.length)%tabs.length;if(e.key==='Home')next=0;if(e.key==='End')next=tabs.length-1;if(next!==undefined){e.preventDefault();tabs[next].click();tabs[next].focus()}});
 });
 if(tabs.length)document.querySelector('#explore-panel').setAttribute('aria-labelledby',tabs[0].id);
+document.querySelectorAll('a[href^="mailto:"]').forEach(link=>link.href=`mailto:${siteConfig.supportEmail}`);
+document.querySelectorAll('a[href="https://github.com/bitlap/sf-app/issues"]').forEach(link=>link.href=siteConfig.feedbackUrl);
 initializeLanguage(()=>{closeMenu();updateCategory();updateDialog()});
 document.querySelector('#year').textContent=new Date().getFullYear();

@@ -20,5 +20,10 @@ for(const platform of Object.values(siteConfig.platforms)){
  if(platform.qrImage)await access(platform.qrImage);
 }
 assert.equal((await readFile('CNAME','utf8')).trim(),new URL(siteConfig.origin).hostname);
-assert(Object.keys(en).length>140,'Incomplete English dictionary');
+for(const file of ['index.html','support.html','404.html']){
+ const html=await readFile(file,'utf8');
+ const text=html.replace(/<script[\s\S]*?<\/script>/g,'').replace(/<style[\s\S]*?<\/style>/g,'');
+ const messages=[...text.split(/<[^>]*>/),...[...html.matchAll(/(?:alt|aria-label)="([^"]+)"/g)].map(m=>m[1])];
+ for(const raw of messages){const message=raw.trim();if(/[\u4e00-\u9fff]/.test(message))assert(Object.hasOwn(en,message),`${file}: missing English translation: ${message}`);}
+}
 console.log('All pages, local links, anchors, configuration, and locale checks passed.');
