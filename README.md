@@ -14,7 +14,7 @@
 
 ## 开发与检查
 
-Node.js 20 或更新版本，无需安装依赖。
+Node.js 20 或更新版本、Python 3（政策页生成与检查），无需安装第三方依赖。
 
 ```sh
 npm run dev     # http://127.0.0.1:4174
@@ -64,3 +64,15 @@ DNSPod 记录（普通解析，不修改 `m` 等其他子域名）：
 - 展示摄影来自 Unsplash；原始图片 URL 记录于 [assets/README.md](assets/README.md)。
 - Manrope 字体按 SIL Open Font License 自托管，许可证见 `assets/fonts/OFL.txt`；中文使用系统字体。
 - `docs/previews/` 保存首版原型参考，不属于构建输出。
+
+## App 隐私政策
+
+- 双语入口：https://dreamylost.com/privacy/
+- 中文：https://dreamylost.com/privacy/zh-CN.html
+- English：https://dreamylost.com/privacy/en.html
+
+原 `sf-app-privacy` 仓库的 2026-11-19 政策已迁入 `policies/zh-CN.json` 和 `policies/en.json`，正文保持逐字一致，包含全部 12 个章节。编辑中英文 JSON 后运行 `npm run privacy:build` 生成三页，再运行 `npm run check`。生成器会检查两种语言的章节 ID 和段落数，验证脚本检查每段原文、目录锚点及页面链接。
+
+政策页共用官网字体、品牌标识、配色与导航，使用静态 HTML 和原生语言链接，不加载官网 JavaScript，不通过 Cookie 或 localStorage 记住语言。字体和样式自行托管。打印样式隐藏导航和目录，方便保存政策正文。
+
+旧 `https://bitlap.org/sf-app-privacy/` 地址的兼容跳转由组织主站 `bitlap.github.io` 的 `public/sf-app-privacy/` 维护；Pages 发布分支同时保留对应文件。旧仓库移除后，已发布 App 和商店里的旧入口仍可跳至本网站。

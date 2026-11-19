@@ -4,7 +4,7 @@ export const siteConfig = Object.freeze({
   repository: 'https://github.com/bitlap/sf-website',
   supportEmail: 'dreamylost@outlook.com',
   feedbackUrl: 'https://github.com/bitlap/sf-app/issues',
-  privacyUrl: 'https://bitlap.org/sf-app-privacy/',
+  privacyUrl: 'https://dreamylost.com/privacy/',
   // Set official, public URLs when these channels become available.
   // ios: App Store or public TestFlight invitation; android: official APK URL.
   platforms: {

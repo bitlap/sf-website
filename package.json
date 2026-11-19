@@ -6,8 +6,11 @@
   "description": "SnapFlow 幻兔官方网站",
   "scripts": {
     "dev": "node scripts/serve.mjs",
-    "check": "node --check app.js && node --check site-config.js && node --check i18n.js && node scripts/check.mjs",
-    "build": "npm run check && node scripts/build.mjs"
+    "check": "node --check app.js && node --check site-config.js && node --check i18n.js && node scripts/check.mjs && python3 scripts/check-privacy.py",
+    "build": "npm run privacy:build && npm run check && node scripts/build.mjs",
+    "privacy:build": "python3 scripts/build-privacy.py"
   },
-  "engines": { "node": ">=20" }
+  "engines": {
+    "node": ">=20"
+  }
 }

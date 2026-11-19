@@ -19,7 +19,7 @@ export function initializeLanguage(onChange){
     const url=new URL(location.href);if(language==='en')url.searchParams.set('lang','en');else url.searchParams.delete('lang');history.replaceState(null,'',url);
     try{localStorage.setItem('sf-language',language)}catch{}
     document.querySelectorAll('a[href]').forEach(link=>{const value=link.getAttribute('href');if(!value||value.startsWith('#')||link.origin!==location.origin)return;const target=new URL(link.href);if(!target.pathname.endsWith('.html')&&!target.pathname.endsWith('/'))return;if(language==='en')target.searchParams.set('lang','en');else target.searchParams.delete('lang');link.href=target.href;});
-    document.querySelectorAll('[data-privacy],a[href*="bitlap.org/sf-app-privacy"]').forEach(link=>link.href=`https://bitlap.org/sf-app-privacy/${language==='en'?'en.html':'zh-CN.html'}`);
+    document.querySelectorAll('[data-privacy]').forEach(link=>link.href=new URL(`privacy/${language==='en'?'en.html':'zh-CN.html'}`,import.meta.url).href);
     onChange?.();
   }
   select?.addEventListener('change',()=>apply(select.value));
