@@ -1,0 +1,13 @@
+{
+  "name": "sf-website",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "SnapFlow 幻兔官方网站",
+  "scripts": {
+    "dev": "node scripts/serve.mjs",
+    "check": "node --check app.js && node --check site-config.js && node --check i18n.js && node scripts/check.mjs",
+    "build": "npm run check && node scripts/build.mjs"
+  },
+  "engines": { "node": ">=20" }
+}
