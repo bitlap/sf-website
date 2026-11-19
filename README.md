@@ -40,7 +40,7 @@ platforms: {
 
 ## GitHub Pages 发布
 
-仓库：**https://github.com/bitlap/sf-website**。
+仓库：**https://github.com/bitlap/sf-website** 。
 
 在 Settings → Pages 设置 **Deploy from a branch → main → / (root)**。根目录的 `.nojekyll` 禁用 Jekyll，`CNAME` 保留自定义域名。GitHub Pages 会随 `main` 的推送自动发布；本项目不依赖付费的自定义 Actions runner。请在每次推送前运行 `npm run build`。
 
