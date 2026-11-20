@@ -1,6 +1,7 @@
 """Check complete bilingual policy pages, local links, and script-free privacy pages."""
 import importlib.util
 import json
+from datetime import date
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urlsplit, unquote
@@ -33,6 +34,9 @@ for filename,expected in build.render().items():
     if filename!='index.html':
         code=filename.removesuffix('.html');policy=json.loads((ROOT/'policies'/f'{code}.json').read_text())
         assert len(policy['sections'])==12 and page.language==code
+        effective=date.fromisoformat(policy['updated'])
+        label=f'{effective.year}年{effective.month}月{effective.day}日' if code=='zh-CN' else f'{effective.strftime("%B")} {effective.day}, {effective.year}'
+        assert label in actual and label in (ROOT/'privacy/index.html').read_text(), 'Policy date mismatch'
         for section in policy['sections']:
             assert section['id'] in page.ids
             for paragraph in section['paragraphs']:assert f'<p>{paragraph}</p>' in actual,'Policy text changed or omitted'
