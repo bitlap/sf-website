@@ -1,6 +1,6 @@
 {
   "language": "en",
-  "updated": "2026-11-19",
+  "updated": "2026-11-20",
   "sections": [
     {
       "id": "scope",
@@ -48,6 +48,8 @@
       "id": "messages",
       "title": "6. Messages and iOS notifications",
       "paragraphs": [
+        "Direct messaging processes the text and emoji you send, sender and recipient identifiers, conversations, timestamps, read receipts, recall and personal deletion state to deliver messages and synchronize your devices. Chat history may also be stored on your device. Direct messages and notifications are not end-to-end encrypted. Avoid sending unnecessary sensitive information.",
+        "We process follow relationships, message acceptance scope, blocking, mute, pin and conversation visibility preferences to control messaging permissions and alerts. When online status is enabled, foreground devices periodically renew a short-lived presence lease. Presence is shared only when both users follow each other, both enable visibility and neither has blocked the other. You can disable online status. Deleting or clearing a chat affects only your own records, not the recipient’s copies; recall cannot guarantee removal of content already viewed, copied or captured in screenshots.",
         "Our messaging service processes interaction and review-result notices and read/deletion state, which may also be cached locally. With iOS notifications enabled, we and the messaging service process Apple’s device token, account binding, app/platform and push-environment information to deliver to the correct device and update or unregister a registration. A device token is not an Apple Account password, may change and is not used for cross-app ad tracking.",
         "Notifications are delivered through Apple Push Notification service (APNs). They may contain nicknames, work titles or interaction/review summaries. System and app settings jointly control lock-screen display and previews; disable them as needed. Turning off system notifications does not delete in-app messages. Logging out or uninstalling does not delete the server account. Our messaging service processes business-notification content; this policy does not claim end-to-end encryption for notifications."
       ]
@@ -99,7 +101,7 @@
       "id": "updates",
       "title": "12. Updates and contact",
       "paragraphs": [
-        "This policy was updated and takes effect on November 15, 2026. We will update it as features and processing change. Material changes will be communicated through appropriate in-app or release channels. Processing that needs separate authorization does not automatically gain consent through a policy update. The Chinese and English versions describe the same processing scope.",
+        "This policy was updated and takes effect on November 20, 2026. We will update it as features and processing change. Material changes will be communicated through appropriate in-app or release channels. Processing that needs separate authorization does not automatically gain consent through a policy update. The Chinese and English versions describe the same processing scope.",
         "For privacy, access, correction, deletion or children’s information questions, contact <a href=\"mailto:dreamylost@outlook.com\">dreamylost@outlook.com</a>. Include only information necessary to handle your request."
       ]
     }
