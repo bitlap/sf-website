@@ -71,7 +71,7 @@ DNSPod 记录（普通解析，不修改 `m` 等其他子域名）：
 - 中文：https://dreamylost.com/privacy/zh-CN.html
 - English：https://dreamylost.com/privacy/en.html
 
-原 `sf-app-privacy` 仓库的 2026-11-19 政策已迁入 `policies/zh-CN.json` 和 `policies/en.json`，正文保持逐字一致，包含全部 12 个章节。编辑中英文 JSON 后运行 `npm run privacy:build` 生成三页，再运行 `npm run check`。生成器会检查两种语言的章节 ID 和段落数，验证脚本检查每段原文、目录锚点及页面链接。
+2026-11-19 从原 `sf-app-privacy` 仓库迁入政策时，正文保持逐字一致；迁移基线见[迁移记录](docs/migrations/privacy-policy.md)。当前政策以 `policies/zh-CN.json` 和 `policies/en.json` 为准，随实际功能更新，保留 12 个章节。编辑中英文 JSON 后运行 `npm run privacy:build` 生成三页，再运行 `npm run check`。生成器会检查两种语言的章节 ID 和段落数，验证脚本检查每段原文、目录锚点及页面链接。
 
 政策页共用官网字体、品牌标识、配色与导航，使用静态 HTML 和原生语言链接，不加载官网 JavaScript，不通过 Cookie 或 localStorage 记住语言。字体和样式自行托管。打印样式隐藏导航和目录，方便保存政策正文。
 
@@ -80,3 +80,5 @@ DNSPod 记录（普通解析，不修改 `m` 等其他子域名）：
 2026-11-21 更新：官网同步 iOS 0.1.0（51）内部 TestFlight 测试状态。外部公测尚未开放，公开入口保持 `null`；不发布内部测试链接或审核账号资料。App 目前主要为简体中文界面，官网的双语功能不代表 App 已国际化。发布准备与剩余验收统一维护于[公测 #89](https://github.com/bitlap/sf-app/issues/89)。
 
 自助注销与清理已在生产开启；配套 App 需声明当前注销说明版本 1，旧包需升级。官网帮助页与政策统一使用“设置 → 账号与安全 → 注销账号／注销进度”。关联数据通常在 7 天内处理：清理已确认上传归属的原件及共享引用，保留他人独立副本与归属不明的历史资源。接口开放不代表真实注销和清理验收已完成。
+
+本次文档核对已同步构建 51 的统计状态和已读隐私规则：该构建未启用第一方功能事件统计，但服务端业务日志和必要业务记录仍存在；已读公开默认开启，关闭不停止本人阅读位置同步，重新开启会公开当前累计已读。政策生成页由 JSON 生成，不手工修改。
