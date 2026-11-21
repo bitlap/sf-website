@@ -1,0 +1,62 @@
+{
+  "language": "en",
+  "updated": "2026-11-21",
+  "sections": [
+    {
+      "id": "scope",
+      "title": "1. Scope and contact",
+      "paragraphs": [
+        "These terms cover the SnapFlow app and its supporting cloud services, provided by the app developer. Contact dreamylost@outlook.com for service questions, reports, rights complaints or account requests. The applicable Apple Standard EULA continues to apply to apps obtained through the App Store; these terms explain SnapFlow service rules."
+      ]
+    },
+    {
+      "id": "account",
+      "title": "2. Guests and accounts",
+      "paragraphs": [
+        "You can browse public discovery and music feeds without signing in. Personal albums, messages, profiles, likes, favorites, follows, posting comments and opening comment threads require sign-in. Phone accounts use a country code, number and password. Apple sign-in is available on iOS when supported by the service. Use identity information you are entitled to use, protect passwords, devices and sessions, and do not impersonate others."
+      ]
+    },
+    {
+      "id": "content",
+      "title": "3. Content and permission",
+      "paragraphs": [
+        "You must have the rights and permissions needed to upload, publish and share content. Content ownership remains with its rights holders. You permit the developer to store, display, share, transmit and make necessary format conversions only to provide the services you choose; ownership is not transferred. Public posts and deliberate shares are visible to their respective audiences. Anonymous posting does not remove responsibility. Do not submit unlawful, pornographic, threatening, fraudulent, harassing, infringing or privacy-invasive content."
+      ]
+    },
+    {
+      "id": "sharing",
+      "title": "4. Albums and sharing permissions",
+      "paragraphs": [
+        "Albums you create and albums you join have different permissions. Receiving a share does not automatically grant editing or upload rights; collaborative uploads require explicit album permission. Choose recipients, links and members carefully. Revoking a share or deleting a reference cannot remotely erase independent copies already saved by others."
+      ]
+    },
+    {
+      "id": "moderation",
+      "title": "5. Interaction, reports and moderation",
+      "paragraphs": [
+        "Use comments and private messages respectfully. Do not manipulate engagement, send spam or harass others. Use in-app reporting, blocking and privacy controls, or email the developer with facts and proof sufficient to assess a complaint. Necessary responses to violations may include limiting visibility, removing content, restricting features or disabling an account. Contact the developer to request review of a moderation decision."
+      ]
+    },
+    {
+      "id": "deletion",
+      "title": "6. Account deletion and data",
+      "paragraphs": [
+        "Request deletion under Settings → Account & Security → Delete Account and check Deletion Progress. Once accepted, the account is disabled immediately and cannot be restored. Associated data is normally processed within seven days; this is not a cancellable seven-day cooling-off period. Owned albums stop sharing and enter tombstone cleanup. Memberships in other albums end; verified originals uploaded by you and their shared references are cleaned up, while independent copies saved by others remain. Historical resources with unverified upload ownership are retained rather than deleted based on album ownership or URLs; contact the developer for verification. See the privacy policy for backups, logs and legally required retention."
+      ]
+    },
+    {
+      "id": "operation",
+      "title": "7. Operation and changes",
+      "paragraphs": [
+        "Beta features may change or become temporarily unavailable. Keep independent backups of important photos and files. The developer takes reasonable steps to explain maintenance, failures and changes and restore service, but does not promise uninterrupted operation or that data can never be lost. These terms do not exclude statutory rights or liabilities that cannot lawfully be excluded. Material service or terms changes will be communicated through appropriate channels. If you disagree, stop using the service and use available tools to export or manage account data."
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": "8. Privacy, minors and disputes",
+      "paragraphs": [
+        "Personal information is handled under the <a href=\"../privacy/en.html\">Privacy Policy</a>. Minors should use the service with guardian guidance and avoid unnecessary disclosure; guardians can email verification and handling requests. Contact the developer to try to resolve disputes. Otherwise, applicable law and courts with proper jurisdiction apply, without limiting statutory remedies."
+      ]
+    }
+  ]
+}
