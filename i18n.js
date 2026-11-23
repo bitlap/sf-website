@@ -1,4 +1,4 @@
-import {en} from './locales/en.js';
+import {en} from './locales/en.js?v=e0e696b592bf';
 let language='zh-CN';
 const textSources=new Map(),attributeSources=[];
 export const t = message => language==='en' ? (en[message]??message) : message;

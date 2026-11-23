@@ -38,4 +38,9 @@ const categoryImages=[...(await readFile('app.js','utf8')).matchAll(/image:'([^'
 assert.equal(categoryImages.length,4,'Each explore category needs an image');
 assert.equal(new Set(categoryImages).size,4,'Explore categories must use distinct, relevant images');
 for(const image of categoryImages)await access(`assets/${image}`);
+const support=await readFile('support.html','utf8');
+const supportMain=support.split('<main')[1].split('</main>')[0];
+for(const heading of supportMain.matchAll(/<h[1-6]([^>]*)>/g))assert(heading[1].includes('class="sr-only"'),'Support page must not repeat visible headings');
+const home=await readFile('index.html','utf8');
+for(const category of ['photo','read','music','game'])assert(new RegExp(`data-category="${category}"><img src="assets/`).test(home),`${category}: missing visible category thumbnail`);
 console.log('All pages, local links, anchors, configuration, and locale checks passed.');

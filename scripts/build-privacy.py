@@ -1,6 +1,7 @@
 """Render the complete bilingual App policy without JavaScript or browser storage."""
 import argparse
 import html
+import hashlib
 import json
 from datetime import date
 from pathlib import Path
@@ -12,6 +13,8 @@ LANGUAGES = {'zh-CN': '简体中文', 'en': 'English'}
 
 def frame(lang, title, content, filename=''):
     english = lang == 'en'
+    style_version = hashlib.sha256((ROOT / 'styles.css').read_bytes()).hexdigest()[:12]
+    policy_style_version = hashlib.sha256((ROOT / 'privacy.css').read_bytes()).hexdigest()[:12]
     home = '../index.html' + ('?lang=en' if english else '')
     suffix = '?lang=en' if english else ''
     nav = [('Features' if english else '产品功能', home + '#features'), ('Explore' if english else '灵感探索', home + '#explore'), ('About us' if english else '关于我们', '../about.html' + suffix), ('Help & support' if english else '帮助与支持', '../support.html' + suffix)]
@@ -28,7 +31,7 @@ def frame(lang, title, content, filename=''):
   <link rel="canonical" href="{BASE}{filename}">
   <link rel="alternate" hreflang="zh-CN" href="{BASE}zh-CN.html"><link rel="alternate" hreflang="en" href="{BASE}en.html"><link rel="alternate" hreflang="x-default" href="{BASE}">
   <meta property="og:type" content="website"><meta property="og:title" content="{html.escape(title)} · SnapFlow"><meta property="og:description" content="{description}"><meta property="og:url" content="{BASE}{filename}"><meta property="og:image" content="https://dreamylost.com/assets/social-cover.jpg">
-  <link rel="icon" type="image/png" href="../assets/logo.png"><link rel="apple-touch-icon" href="../assets/logo.png"><link rel="stylesheet" href="../styles.css"><link rel="stylesheet" href="../privacy.css">
+  <link rel="icon" type="image/png" href="../assets/logo.png"><link rel="apple-touch-icon" href="../assets/logo.png"><link rel="stylesheet" href="../styles.css?v={style_version}"><link rel="stylesheet" href="../privacy.css?v={policy_style_version}">
 </head>
 <body class="policy-page">
 <a class="skip-link" href="#policy">{'Skip to policy' if english else '跳至政策正文'}</a>
