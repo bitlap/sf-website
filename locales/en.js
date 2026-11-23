@@ -1,5 +1,6 @@
 // Chinese source messages are stable identifiers shared by all static pages.
 export const en = {
+'两个牛马，想做点':'Two developers making something ',
 '帮助快捷入口':'Help shortcuts',
 '。':'.',
 'SnapFlow 幻兔，发现灵感，收藏生活，分享每一个值得被记住的瞬间。':'Discover inspiration, organize your photos, and share the moments you love with SnapFlow.',

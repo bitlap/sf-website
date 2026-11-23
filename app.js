@@ -1,5 +1,5 @@
 import {siteConfig} from './site-config.js?v=6fa97940f8cf';
-import {initializeLanguage,t} from './i18n.js?v=93b988752be5';
+import {initializeLanguage,t} from './i18n.js?v=db489e2038ca';
 const paths = {
  download:'M12 3v12m-5-5 5 5 5-5M5 16v4h14v-4',
  globe:'M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0ZM3 12h18M12 3c-5 5-5 13 0 18 5-5 5-13 0-18Z',
@@ -88,7 +88,7 @@ function updateSupportSearch(){
   if(query&&!savedAnswerState)savedAnswerState=new Map(supportAnswers.map(answer=>[answer,answer.open]));
   let count=0;
   for(const answer of supportAnswers){
-    const matches=!query||`${answer.parentElement.querySelector('h3').textContent} ${answer.textContent}`.toLocaleLowerCase().includes(query);
+    const matches=!query||`${answer.parentElement.getAttribute('aria-label')} ${answer.textContent}`.toLocaleLowerCase().includes(query);
     answer.hidden=!matches;if(matches)count++;
     if(query)answer.open=matches;
     else if(savedAnswerState)answer.open=savedAnswerState.get(answer);
