@@ -1,7 +1,7 @@
 // Chinese source messages are stable identifiers shared by all static pages.
 export const en = {
 '三位不同发型与服装的二次元匿名开发者':'Three anonymous anime developers with distinct hairstyles and outfits',
-'三个牛马，想做点':'Three developers making something ',
+'三个牛马，来自大数据、AI 和后端，因为共同的热爱，凑在一起做点':'Three developers from big data, AI, and backend engineering, brought together by a shared passion to make something ',
 '帮助快捷入口':'Help shortcuts',
 '。':'.',
 'SnapFlow 幻兔，发现灵感，收藏生活，分享每一个值得被记住的瞬间。':'Discover inspiration, organize your photos, and share the moments you love with SnapFlow.',
@@ -41,7 +41,7 @@ export const en = {
 "关于我们":"About us",
 "服务条款":"Terms of service",
 "关于我们 · SnapFlow 幻兔":"About us · SnapFlow",
-"三个牛马，想做点自己喜欢的东西。认识幻兔背后的我们。":"Three developers making something they love. Meet the people behind SnapFlow.",
+"三个牛马，来自大数据、AI 和后端，因为共同的热爱，凑在一起做点自己喜欢的东西。认识幻兔背后的我们。":"Three developers from big data, AI, and backend engineering, brought together by a shared passion to make something they love. Meet the people behind SnapFlow.",
 "三个牛马，":"Three developers,",
 "想做点":"making something ",
 "自己喜欢的东西":"we love",
