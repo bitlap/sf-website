@@ -12,8 +12,12 @@ LANGUAGES = {'zh-CN': '简体中文', 'en': 'English'}
 
 def frame(lang, title, content, filename=''):
     english = lang == 'en'
-    nav = [('Features', 'features'), ('Explore', 'explore'), ('Download', 'download'), ('FAQ', 'faq')] if english else [('产品功能', 'features'), ('灵感探索', 'explore'), ('下载应用', 'download'), ('常见问题', 'faq')]
-    navlinks = ''.join(f'<a href="../index.html{"?lang=en" if english else ""}#{anchor}">{label}</a>' for label, anchor in nav)
+    home = '../index.html' + ('?lang=en' if english else '')
+    suffix = '?lang=en' if english else ''
+    nav = [('Features' if english else '产品功能', home + '#features'), ('Explore' if english else '灵感探索', home + '#explore'), ('About us' if english else '关于我们', '../about.html' + suffix), ('Help & support' if english else '帮助与支持', '../support.html' + suffix)]
+    navlinks = ''.join(f'<a href="{href}">{label}</a>' for label, href in nav)
+    legal_links = f'<a href="../privacy/{lang}.html">{"Privacy policy" if english else "隐私政策"}</a><a href="../terms/{lang}.html">{"Terms of service" if english else "服务条款"}</a>'
+    quick_links = f'<a href="../support.html{suffix}">{"Help & support" if english else "帮助与支持"}</a><a href="../support.html{suffix}#delete-account">{"Account deletion" if english else "账号注销"}</a><a href="mailto:dreamylost@outlook.com">{"Email us" if english else "邮件联系"}</a>'
     locales = ''.join(f'<a href="{code}.html" lang="{code}" hreflang="{code}"'+(' aria-current="page"' if code == lang and filename else '')+f'>{label}</a>' for code, label in LANGUAGES.items())
     description = 'Read how SnapFlow handles your information and how to contact us about privacy.' if english else '了解幻兔如何处理账号、照片、内容、推荐、消息及天气定位信息，以及如何提出隐私请求。'
     return f'''<!doctype html>
@@ -29,8 +33,8 @@ def frame(lang, title, content, filename=''):
 <body class="policy-page">
 <a class="skip-link" href="#policy">{'Skip to policy' if english else '跳至政策正文'}</a>
 <header class="header"><a class="brand" href="../index.html{'?lang=en' if english else ''}"><img src="../assets/logo.png" width="42" height="42" alt=""><strong>SnapFlow<span>幻兔</span></strong></a><nav class="desktop-nav" aria-label="{'Main navigation' if english else '主导航'}">{navlinks}</nav><nav class="policy-languages" aria-label="语言 / Language">{locales}</nav><details class="policy-mobile-menu"><summary aria-label="{'Open menu' if english else '展开菜单'}"><span></span><span></span><span></span></summary><nav>{navlinks}</nav></details></header>
-<main id="policy">{content}</main>
-<footer class="footer section-wrap"><div class="footer-top"><a class="brand" href="../index.html"><img src="../assets/logo.png" width="33" height="33" alt=""><strong>SnapFlow<span>幻兔</span></strong></a><p>{'Save the moment. Discover more.' if english else '记录此刻，发现更多。'}</p><a href="index.html">{'Privacy policy' if english else '隐私政策'}</a><a href="../support.html{'?lang=en' if english else ''}">{'Help & support' if english else '帮助与支持'}</a></div><div class="footer-bottom"><span>© {date.today().year} SnapFlow 幻兔</span><a href="mailto:dreamylost@outlook.com">dreamylost@outlook.com</a></div></footer>
+<nav class="policy-quick-links section-wrap" aria-label="{'Help shortcuts' if english else '帮助快捷入口'}">{quick_links}</nav><main id="policy">{content}</main>
+<footer class="footer section-wrap"><div class="footer-top"><a class="brand" href="{home}"><img src="../assets/logo.png" width="33" height="33" alt=""><strong>SnapFlow<span>幻兔</span></strong></a><p>{'Save the moment. Discover more.' if english else '记录此刻，发现更多。'}</p>{legal_links}<a href="../support.html{'?lang=en' if english else ''}">{'Help & support' if english else '帮助与支持'}</a></div><div class="footer-bottom"><span>© {date.today().year} SnapFlow 幻兔</span><a href="mailto:dreamylost@outlook.com">dreamylost@outlook.com</a></div></footer>
 </body></html>
 '''
 

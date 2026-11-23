@@ -96,3 +96,11 @@ DNSPod 记录（普通解析，不修改 `m` 等其他子域名）：
 构建58支持游客分享公开作品链接、复制和保存分享卡片，并修复随听空列表或失败时无法下拉刷新。游客分享不创建账号或分享回执、不增加账号分享计数，作品可见性在每次访问时重新校验；相册分享及互动仍要求登录。发布证据见[构建58记录](https://github.com/bitlap/sf-app/blob/master/docs/testflight-0.1.0-58.md)，关联[App#209](https://github.com/bitlap/sf-app/issues/209)、[App#211](https://github.com/bitlap/sf-app/issues/211)，外部公测仍未开放。
 
 构建59增加相册左右切换、防抖搜索、详情删除和删除后退出选择，以及最近／常用快捷表情。后端注销IM修复已部署，原已受理任务自然重试完成；其他账号类型和故障场景仍待验收。发布证据见[构建59记录](https://github.com/bitlap/sf-app/blob/master/docs/testflight-0.1.0-59.md)，外部公测与公开下载保持关闭。
+
+## 关于我们与帮助导航
+
+- `about.html` 与 `about.css` 提供两位匿名人物和自动漂浮的技术块；沿用官网导航、字体与双语切换。支持手动暂停，并遵循系统减少动态效果设置。人物与技术图标均由本站托管在 `assets/about/`。
+- 所有主导航可直接进入关于我们和帮助与支持；首页常见问题提供全部帮助、账号注销与邮件联系入口。
+- 支持页顶部可搜索中英文问题、直接邮件联系或复制邮箱。分类入口展开对应答案；`support.html#delete-account` 可直接打开注销说明。搜索没有结果时仍提供邮件入口。
+- 对外反馈只使用邮件，不提供仓库或 GitHub Issue 链接。隐私政策中关于托管服务商的既有说明保持原文。
+- 隐私与条款页面共用模板中的帮助快捷入口；手机目录折叠展示。修改 `scripts/build-privacy.py`、`scripts/build-terms.py` 后运行 `npm run build`，不直接维护生成页。

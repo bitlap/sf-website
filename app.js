@@ -58,9 +58,9 @@ if(dialog){
 }
 const categories={
  photo:{image:'landscape.jpg',alt:'自然风景摄影示例',label:'在平凡里，发现不平凡',kicker:'用眼睛，收藏世界',title:['总有一帧，','让你想多停留一会儿。'],description:'风景、日常、光影与不期而遇。浏览摄影图集，把触动你的内容收藏起来，让下一次灵感有迹可循。',icon:'compass'},
- read:{image:'lake.jpg',alt:'宁静湖畔的阅读氛围示意',label:'给自己，一段安静的时间',kicker:'把时间，交给好故事',title:['翻开一页，','走进另一个世界。'],description:'在文字、图书和漫画之间，发现适合此刻心情的故事。给忙碌的生活留一段阅读时间，让想象继续延伸。',icon:'albums'},
- music:{image:'ocean.jpg',alt:'海浪与音乐的氛围示意',label:'把日常，调到喜欢的频道',kicker:'声音与画面，都有共鸣',title:['一首歌，一段影像，','刚好懂你的此刻。'],description:'浏览音乐与视频内容，找到你喜欢的节奏。让耳朵和眼睛一起出发，在旋律与画面里获得新的灵感。',icon:'play'},
- game:{image:'landscape.jpg',alt:'轻松休闲的自然氛围示意',label:'偶尔放空，也是生活的灵感',kicker:'休息一下，玩一会儿',title:['不用赶路，','快乐也可以很简单。'],description:'从 2048 到拼图，再到更多轻量 H5 游戏。用几分钟的轻松互动，给忙碌的自己一个小小的休息站。',icon:'sparkles'}
+ read:{image:'explore/books-comics.jpg',alt:'展开的书本与森林旅行漫画分镜',label:'给自己，一段安静的时间',kicker:'把时间，交给好故事',title:['翻开一页，','走进另一个世界。'],description:'在文字、图书和漫画之间，发现适合此刻心情的故事。给忙碌的生活留一段阅读时间，让想象继续延伸。',icon:'albums'},
+ music:{image:'explore/music-video.jpg',alt:'黑胶唱片、耳机与摄影机的音乐影像组合',label:'把日常，调到喜欢的频道',kicker:'声音与画面，都有共鸣',title:['一首歌，一段影像，','刚好懂你的此刻。'],description:'浏览音乐与视频内容，找到你喜欢的节奏。让耳朵和眼睛一起出发，在旋律与画面里获得新的灵感。',icon:'play'},
+ game:{image:'explore/casual-games.jpg',alt:'2048 数字方块与森林拼图的休闲游戏组合',label:'偶尔放空，也是生活的灵感',kicker:'休息一下，玩一会儿',title:['不用赶路，','快乐也可以很简单。'],description:'从 2048 到拼图，再到更多轻量 H5 游戏。用几分钟的轻松互动，给忙碌的自己一个小小的休息站。',icon:'sparkles'}
 };
 const tabs=[...document.querySelectorAll('[data-category]')];let selectedCategory='photo';
 function updateCategory(){
@@ -78,6 +78,59 @@ tabs.forEach((button,index)=>{
 });
 if(tabs.length)document.querySelector('#explore-panel').setAttribute('aria-labelledby',tabs[0].id);
 document.querySelectorAll('a[href^="mailto:"]').forEach(link=>link.href=`mailto:${siteConfig.supportEmail}`);
-document.querySelectorAll('a[href="https://github.com/bitlap/sf-app/issues"]').forEach(link=>link.href=siteConfig.feedbackUrl);
-initializeLanguage(()=>{closeMenu();updateCategory();updateDialog()});
+// Help remains readable without JavaScript; enhance search and direct answer links.
+const supportSearch=document.querySelector('#support-search');
+const supportAnswers=[...document.querySelectorAll('.faq-group details')];
+let savedAnswerState=null;
+function updateSupportSearch(){
+  if(!supportSearch)return;
+  const query=supportSearch.value.trim().toLocaleLowerCase();
+  if(query&&!savedAnswerState)savedAnswerState=new Map(supportAnswers.map(answer=>[answer,answer.open]));
+  let count=0;
+  for(const answer of supportAnswers){
+    const matches=!query||`${answer.parentElement.querySelector('h3').textContent} ${answer.textContent}`.toLocaleLowerCase().includes(query);
+    answer.hidden=!matches;if(matches)count++;
+    if(query)answer.open=matches;
+    else if(savedAnswerState)answer.open=savedAnswerState.get(answer);
+  }
+  if(!query)savedAnswerState=null;
+  document.querySelectorAll('.faq-group').forEach(group=>group.hidden=![...group.querySelectorAll('details')].some(answer=>!answer.hidden));
+  document.querySelector('.clear-search').hidden=!query;
+  document.querySelector('.no-results').hidden=count!==0;
+  document.querySelector('.search-status').textContent=query?t('找到 {count} 个相关问题。').replace('{count}',String(count)):'';
+}
+function openSupportRoute(){
+  if(!supportSearch)return;
+  let id;try{id=decodeURIComponent(location.hash.slice(1))}catch{return}
+  const target=document.getElementById(id);
+  if(!target?.matches('.faq-group,.faq-group details'))return;
+  supportSearch.value='';updateSupportSearch();
+  if(target.matches('details')){target.open=true;target.querySelector('summary').focus({preventScroll:true})}
+  else target.querySelectorAll('details').forEach(answer=>answer.open=true);
+  target.scrollIntoView({block:'start'});
+}
+if(supportSearch){
+  document.querySelector('.support-search').hidden=false;
+  document.querySelector('.search-status').dataset.dynamic='';
+  supportSearch.addEventListener('input',updateSupportSearch);
+  document.querySelector('.clear-search').addEventListener('click',()=>{supportSearch.value='';updateSupportSearch();supportSearch.focus()});
+  window.addEventListener('hashchange',openSupportRoute);
+  document.querySelectorAll('.support-shortcuts a,.support-resources a[href^="#"]').forEach(link=>link.addEventListener('click',()=>{if(link.hash===location.hash)openSupportRoute()}));
+}
+let toastTimer;
+function showToast(message){const toast=document.querySelector('.toast');if(!toast)return;clearTimeout(toastTimer);toast.textContent=message;toast.classList.add('visible');toastTimer=setTimeout(()=>toast.classList.remove('visible'),3200)}
+document.querySelector('.copy-email')?.addEventListener('click',async()=>{
+  try{await navigator.clipboard.writeText(siteConfig.supportEmail);showToast(t('邮箱已复制。'))}
+  catch{showToast(t('请复制邮箱：')+' '+siteConfig.supportEmail)}
+});
+const motionToggle=document.querySelector('.motion-toggle');
+let motionPaused=false;
+function updateMotionLabel(){if(motionToggle)motionToggle.textContent=t(motionPaused?'继续漂浮':'暂停漂浮')}
+if(motionToggle){
+  motionToggle.hidden=false;motionToggle.dataset.dynamic='';
+  motionToggle.addEventListener('click',()=>{motionPaused=!motionPaused;document.querySelector('.floating-scene').classList.toggle('is-paused',motionPaused);motionToggle.setAttribute('aria-pressed',String(motionPaused));updateMotionLabel()});
+}
+
+initializeLanguage(()=>{closeMenu();updateCategory();updateDialog();updateSupportSearch();updateMotionLabel()});
+openSupportRoute();
 document.querySelector('#year').textContent=new Date().getFullYear();
