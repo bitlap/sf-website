@@ -1,5 +1,6 @@
 // Chinese source messages are stable identifiers shared by all static pages.
 export const en = {
+'帮助快捷入口':'Help shortcuts',
 '。':'.',
 'SnapFlow 幻兔，发现灵感，收藏生活，分享每一个值得被记住的瞬间。':'Discover inspiration, organize your photos, and share the moments you love with SnapFlow.',
 '下载与安装、问题反馈、账号与隐私。找到适合你的幻兔帮助方式。':'Downloads, feedback, accounts, and privacy. Find the right way to get help with SnapFlow.',

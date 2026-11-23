@@ -1,5 +1,5 @@
 import {siteConfig} from './site-config.js?v=6fa97940f8cf';
-import {initializeLanguage,t} from './i18n.js?v=749806a5f459';
+import {initializeLanguage,t} from './i18n.js?v=93b988752be5';
 const paths = {
  download:'M12 3v12m-5-5 5 5 5-5M5 16v4h14v-4',
  globe:'M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0ZM3 12h18M12 3c-5 5-5 13 0 18 5-5 5-13 0-18Z',
