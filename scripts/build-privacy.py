@@ -17,7 +17,7 @@ def frame(lang, title, content, filename=''):
     policy_style_version = hashlib.sha256((ROOT / 'privacy.css').read_bytes()).hexdigest()[:12]
     home = '../index.html' + ('?lang=en' if english else '')
     suffix = '?lang=en' if english else ''
-    nav = [('Features' if english else '产品功能', home + '#features'), ('Explore' if english else '灵感探索', home + '#explore'), ('About us' if english else '关于我们', '../about.html' + suffix), ('Help & support' if english else '帮助与支持', '../support.html' + suffix)]
+    nav = [('Features' if english else '产品功能', home + '#features'), ('About us' if english else '关于我们', '../about.html' + suffix), ('Help & support' if english else '帮助与支持', '../support.html' + suffix)]
     navlinks = ''.join(f'<a href="{href}">{label}</a>' for label, href in nav)
     legal_links = f'<a href="../privacy/{lang}.html">{"Privacy policy" if english else "隐私政策"}</a><a href="../terms/{lang}.html">{"Terms of service" if english else "服务条款"}</a>'
     quick_links = f'<a href="../support.html{suffix}">{"Help & support" if english else "帮助与支持"}</a><a href="../support.html{suffix}#delete-account">{"Account deletion" if english else "账号注销"}</a><a href="mailto:dreamylost@outlook.com">{"Email us" if english else "邮件联系"}</a>'
